@@ -1,0 +1,30 @@
+version: "3"
+services:
+        wordpress:
+                image: wordpress:5.7
+                ports:
+                        - 80:80
+                environment:
+                        - WORDPRESS_DB_HOST=db
+                        - WORDPRESS_DB_USER=wpuser
+                        - WORDPRESS_DB_PASSWORD=passwd21
+                        - WORDPRESS_DB_NAME=wrdprss
+                networks:
+                        - p10_net
+                volumes:
+                        - ./data/wp:/var/www/html
+        db:
+                image: mysql:5.7
+                environment:
+                        - MYSQL_ROOT_PASSWORD=mypasswd
+                        - MYSQL_DATABASE=wrdprss
+                        - MYSQL_USER=wpuser
+                        - MYSQL_PASSWORD=mypasswd
+                networks:
+                        - p10_net
+                volumes:
+                        - ./data/bd:/var/lib/mysql
+####### 
+#volumes:
+networks:
+        p10_net: 
