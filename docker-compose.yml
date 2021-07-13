@@ -7,7 +7,7 @@ services:
                 environment:
                         - WORDPRESS_DB_HOST=db
                         - WORDPRESS_DB_USER=wpuser
-                        - WORDPRESS_DB_PASSWORD=passwd21
+                        - WORDPRESS_DB_PASSWORD=mypasswd
                         - WORDPRESS_DB_NAME=wrdprss
                 networks:
                         - p10_net
@@ -16,7 +16,7 @@ services:
         db:
                 image: mysql:5.7
                 environment:
-                        - MYSQL_ROOT_PASSWORD=mypasswd
+                        - MYSQL_ROOT_PASSWORD=root
                         - MYSQL_DATABASE=wrdprss
                         - MYSQL_USER=wpuser
                         - MYSQL_PASSWORD=mypasswd
