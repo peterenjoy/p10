@@ -12,7 +12,7 @@ services:
                 networks:
                         - p10_net
                 volumes:
-                        - ./data/wp:/var/www/html
+                        - /data/wp:/var/www/html
         db:
                 image: mysql:5.7
                 environment:
@@ -23,7 +23,7 @@ services:
                 networks:
                         - p10_net
                 volumes:
-                        - ./data/bd:/var/lib/mysql
+                        - /data/bd:/var/lib/mysql
 ####### 
 #volumes:
 networks:
