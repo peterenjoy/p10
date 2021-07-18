@@ -3,12 +3,12 @@ services:
         wordpress:
                 image: wordpress:5.7
                 ports:
-                        - 80:80
+                        - 80:3306 # PORT??
                 environment:
-                        - WORDPRESS_DB_HOST=db
-                        - WORDPRESS_DB_USER=wpuser
-                        - WORDPRESS_DB_PASSWORD=mypasswd
-                        - WORDPRESS_DB_NAME=wrdprss
+                        - WORDPRESS_DB_HOST=BDP10
+                        - WORDPRESS_DB_USER=UsernameP10
+                        - WORDPRESS_DB_PASSWORD=PasswordP10
+                        - WORDPRESS_DB_NAME=wrdprssP10
                 networks:
                         - p10_net
                 volumes:
@@ -18,12 +18,13 @@ services:
                 environment:
                         - MYSQL_ROOT_PASSWORD=root
                         - MYSQL_DATABASE=wrdprss
-                        - MYSQL_USER=wpuser
-                        - MYSQL_PASSWORD=mypasswd
+                        - MYSQL_HOST=BDP10
+                        - MYSQL_USER=UsernameP10
+                        - MYSQL_PASSWORD=PasswordP10
                 networks:
                         - p10_net
                 volumes:
-                        - /data/bd:/var/lib/mysql
+                        - /data/bd:/var/lib/mysql ##### ???? partie Volume à dégager?
 ####### 
 #volumes:
 networks:
