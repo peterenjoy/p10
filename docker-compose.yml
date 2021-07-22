@@ -20,7 +20,8 @@ services:
                 volumes:
                         - wp_data:/var/www/html
 
-
+volumes:
+        wp_data:
 
 #                volumes:
 #                        - efsaws:/var/www/html
