@@ -30,7 +30,7 @@ services:
                         if [ ! wp core is-installed ]; then 
                         wp core install 
                         --path="/var/www/html" 
-                        --url="WebsiteLoadBlancerListener.DNSName"
+                        --url="WPURLDNS"
                         --title="Site Web pour P10"
                         --admin_user="wpuser"
                         --admin_password="wppassword"
