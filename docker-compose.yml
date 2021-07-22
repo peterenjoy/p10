@@ -17,12 +17,35 @@ services:
                 depends_on:
                         - wordpress
                 image: wordpress:cli
+                 environment:
+                        - WORDPRESS_DB_HOST=BDP10
+                        - WORDPRESS_DB_USER=UsernameP10
+                        - WORDPRESS_DB_PASSWORD=PasswordP10
+                        - WORDPRESS_DB_NAME=wrdprssP10
                 volumes:
                         - wp_data:/var/www/html
+                command: >
+                        /bin/sh -c '
+                        sleep 5;
+                        if [ ! wp core is-installed ]; then 
+                        wp core install 
+                        --path="/var/www/html" 
+                        --url="WebsiteLoadBlancerListener.DNSName"
+                        --title="Site Web pour P10"
+                        --admin_user="wpuser"
+                        --admin_password="wppassword"
+                        --admin_email="wpemail";
+                        else echo "WP est déjà Installé!!!!";
+                        fi'
 
 volumes:
         wp_data:
-
+#                driver_opts:
+#                        type: "nfs4"
+#                        device: ":/docker/wp_data"
+#                        o: "addr=MPIP,nolock,soft,rw"
+#
+#
 #                volumes:
 #                        - efsaws:/var/www/html
 #
