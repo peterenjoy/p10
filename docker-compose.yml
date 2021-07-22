@@ -25,18 +25,19 @@ services:
                 volumes:
                         - wp_data:/var/www/html
                 command: >
-                        /bin/sh -c '
+                        /bin/bash -c '
                         sleep 5;
-                        if [ ! wp core is-installed ]; then 
+                        wp core is-installed;
+                        if [ $$? -eq 0 ]; then
+                        echo "WP Déjà Installé!!!!"; else
                         wp core install 
                         --path="/var/www/html" 
                         --url="WPURLDNS"
                         --title="Site Web pour P10"
                         --admin_user="wpuser"
                         --admin_password="wppassword"
-                        --admin_email="wpemail";
-                        else echo "WP est déjà Installé!!!!";
-                        fi'
+                        --admin_email="wpemail"; fi
+                        '
 
 volumes:
         wp_data:
