@@ -1,11 +1,34 @@
 version: "3"
 services:
         wordpress:
-                image: wordpress:5.7
+                image: wordpress
                 ports:
-                        - 80:3306 # PORT??
+                        - 80:80 # PORT??
                 environment:
                         - WORDPRESS_DB_HOST=BDP10
                         - WORDPRESS_DB_USER=UsernameP10
                         - WORDPRESS_DB_PASSWORD=PasswordP10
                         - WORDPRESS_DB_NAME=wrdprssP10
+#                volumes:
+#                        - efsaws:/var/www/html
+#
+#        BDP10: 
+#                image: mysql:5.7
+#                environment:
+#        ⦙       ⦙       - MYSQL_ROOT_PASSWORD=root
+#        ⦙       ⦙       - MYSQL_DATABASE=wrdprss
+#        ⦙       ⦙       - MYSQL_HOST=BDP10
+#        ⦙       ⦙       - MYSQL_USER=UsernameP10
+#        ⦙       ⦙       - MYSQL_PASSWORD=PasswordP10
+#
+#
+#volumes:
+#         efsaws:
+#                driver_opts:
+#                        type: "nfs"
+#                        device: ":/docker/efsaws"
+#                        o: "addr=MPIP,nolock,soft,rw"
+#
+# MAPPING SUR EFS / VOLUMES
+
+
