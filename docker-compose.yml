@@ -17,7 +17,7 @@ services:
                 depends_on:
                         - wordpress
                 image: wordpress:cli
-                 environment:
+                environment:
                         - WORDPRESS_DB_HOST=BDP10
                         - WORDPRESS_DB_USER=UsernameP10
                         - WORDPRESS_DB_PASSWORD=PasswordP10
