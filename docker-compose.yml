@@ -9,6 +9,19 @@ services:
                         - WORDPRESS_DB_USER=UsernameP10
                         - WORDPRESS_DB_PASSWORD=PasswordP10
                         - WORDPRESS_DB_NAME=wrdprssP10
+                volumes:
+                        - wp_data:/var/www/html
+
+
+        wordpress-cli:
+                depends_on:
+                        - wordpress
+                image: wordpress:cli
+                volumes:
+                        - wp_data:/var/www/html
+
+
+
 #                volumes:
 #                        - efsaws:/var/www/html
 #
