@@ -41,12 +41,12 @@ services:
 
 volumes:
         wp_data:
-#                driver_opts:
-#                        type: "nfs4"
-#                        device: ":/docker/wp_data"
-#                        o: "addr=MPIP,nolock,soft,rw"
-#
-#
+                driver_opts:
+                        type: "nfs4"
+                        device: ":/docker/wp_data"
+                        o: "addr=MTRIP,nolock,soft,rw"
+
+
 #                volumes:
 #                        - efsaws:/var/www/html
 #
