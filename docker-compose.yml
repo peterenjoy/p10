@@ -36,7 +36,9 @@ services:
                         --title="Site Web pour P10"
                         --admin_user="wpuser"
                         --admin_password="wppassword"
-                        --admin_email="wpemail"; fi
+                        --admin_email="wpemail"
+                        echo "WP bien installé"
+                        wp core version; fi
                         '
 #
 #volumes:
