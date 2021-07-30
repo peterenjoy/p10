@@ -38,7 +38,8 @@ services:
                         --admin_password="wppassword"
                         --admin_email="wpemail";
                         echo "WP bien installé";
-                        wp core version; fi
+                        wp core version; fi;
+                        wp plugin install amazon-web-services;
                         '
 #
 #volumes:
