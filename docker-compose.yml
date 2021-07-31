@@ -24,6 +24,7 @@ services:
                         - WORDPRESS_DB_NAME=wrdprssP10
                 volumes:
                         - /wp_data:/var/www/html
+                user: xfs ### ??????? UID 33?????
                 command: >
                         /bin/bash -c '
                         sleep 80;
