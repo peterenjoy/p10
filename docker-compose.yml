@@ -29,6 +29,7 @@ services:
                         /bin/bash -c '
                         while [ ! -f wp-config.php ]; do
                         sleep 5;
+                        ls wp-c*
                         if [ -f wp-config.php ]; then
                         wp core install 
                         --path="/var/www/html" 
