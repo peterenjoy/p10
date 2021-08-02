@@ -27,10 +27,9 @@ services:
                 user: xfs ### ??????? UID 33?????
                 command: >
                         /bin/bash -c '
-                        sleep 80;
-                        wp core is-installed;
-                        if [ $$? -eq 0 ]; then
-                        echo "WP Déjà Installé!!!!"; else
+                        while [ ! -f wp-config.php ]; do
+                        sleep 1;
+                        if [ -f wp-config.php ]; then
                         wp core install 
                         --path="/var/www/html" 
                         --url="WPURLDNS"
@@ -39,7 +38,7 @@ services:
                         --admin_password="wppassword"
                         --admin_email="wpemail";
                         echo "WP bien installé";
-                        wp core version; fi;
+                        wp core version; fi; done;
                         wp plugin install amazon-web-services;
                         '
 #
