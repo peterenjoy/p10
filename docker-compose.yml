@@ -41,6 +41,7 @@ services:
                         echo "WP bien installé";
                         wp core version; fi; done;
                         wp plugin install amazon-web-services;
+                        wp plugin activate amazon-web-services;
                         '
 #
 #volumes:
