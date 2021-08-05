@@ -43,7 +43,7 @@ services:
                         wp plugin install amazon-web-services;
                         wp plugin activate amazon-web-services;
                         '
-#
+# ACTIVATE à la FIN!!!
 #volumes:
 #        wp_data:
 #                driver_opts:
