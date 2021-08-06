@@ -18,6 +18,7 @@ services:
                         - wordpress
                 image: wordpress:cli
                 environment:
+                        - HOME=/tmp
                         - WORDPRESS_DB_HOST=BDP10
                         - WORDPRESS_DB_USER=UsernameP10
                         - WORDPRESS_DB_PASSWORD=PasswordP10
@@ -40,7 +41,7 @@ services:
                         --admin_email="wpemail";
                         echo "WP bien installé";
                         wp core version; fi; done;
-                        wp plugin install amazon-web-services;
+                        wp plugin install amazon-s3-and-cloudfront --activate;
                         '
 # ACTIVATE à la FIN!!!
 # wp plugin activate amazon-web-services
