@@ -41,9 +41,11 @@ services:
                         echo "WP bien installé";
                         wp core version; fi; done;
                         wp plugin install amazon-web-services;
-                        wp plugin activate amazon-web-services;
                         '
 # ACTIVATE à la FIN!!!
+# wp plugin activate amazon-web-services
+#check si aws dans wp-config bucket
+
 #volumes:
 #        wp_data:
 #                driver_opts:
