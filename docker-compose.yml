@@ -40,7 +40,26 @@ services:
                         --admin_email="wpemail";
                         echo "WP bien installé";
                         wp core version; fi; done;
-                        wp plugin install amazon-s3-and-cloudfront --activate;
+                        '
+       wordpress-cli2:
+                depends_on:
+                        - wordpres-cli
+                image: wordpress:cli
+                environment:
+                        - PATH=/tmp
+                        - WORDPRESS_DB_HOST=BDP10
+                        - WORDPRESS_DB_USER=UsernameP10
+                        - WORDPRESS_DB_PASSWORD=PasswordP10
+                        - WORDPRESS_DB_NAME=wrdprssP10
+                volumes:
+                        - /wp_data:/var/www/html
+                user: xfs ### ??????? UID 33?????
+                command: >
+                        /bin/bash -c '
+                        while [ ! wp core is-installed ]; do
+                        sleep 5;
+                        if [ wp core is-installed ]; then
+                        wp plugin install amazon-s3-and-cloudfront --activate; fi; done;
                         '
 # ACTIVATE à la FIN!!!
 # wp plugin activate amazon-web-services
