@@ -41,24 +41,25 @@ services:
                         echo "WP bien installé";
                         wp core version; fi; done;
                         '
-       wordpress-cli2:
+        wordpress-cli2:
                 depends_on:
-                        - wordpres-cli
+                        - wordpress
                 image: wordpress:cli
                 environment:
-                        - PATH=/tmp
+                        - HOME=/tmp
                         - WORDPRESS_DB_HOST=BDP10
                         - WORDPRESS_DB_USER=UsernameP10
                         - WORDPRESS_DB_PASSWORD=PasswordP10
                         - WORDPRESS_DB_NAME=wrdprssP10
                 volumes:
                         - /wp_data:/var/www/html
-                user: xfs ### ??????? UID 33?????
+               user: xfs ### ??????? UID 33?????
                 command: >
                         /bin/bash -c '
-                        while [ ! wp core is-installed ]; do
+                        while [ ! -f wp-config.php ]; do
                         sleep 5;
-                        if [ wp core is-installed ]; then
+                        if [ -f wp-config.php ]; then
+                        sleep 5;
                         wp plugin install amazon-s3-and-cloudfront --activate; fi; done;
                         '
 # ACTIVATE à la FIN!!!
