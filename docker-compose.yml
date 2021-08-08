@@ -53,13 +53,13 @@ services:
                         - WORDPRESS_DB_NAME=wrdprssP10
                 volumes:
                         - /wp_data:/var/www/html
-               user: xfs ### ??????? UID 33?????
+                user: xfs ### ??????? UID 33?????
                 command: >
                         /bin/bash -c '
                         while [ ! -f wp-config.php ]; do
                         sleep 5;
                         if [ -f wp-config.php ]; then
-                        sleep 5;
+                        sleep 10;
                         wp plugin install amazon-s3-and-cloudfront --activate; fi; done;
                         '
 # ACTIVATE à la FIN!!!
