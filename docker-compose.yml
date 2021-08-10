@@ -1,7 +1,7 @@
 version: "3"
 services:
         wordpress:
-                image: wordpress:latest
+                build: .
                 ports:
                         - 80:80 # PORT??
                 environment:
@@ -12,36 +12,36 @@ services:
                 volumes:
                         - /wp_data:/var/www/html
 
-
-        wordpress-cli:
-                depends_on:
-                        - wordpress
-                image: wordpress:cli
-                environment:
-                        - WORDPRESS_DB_HOST=BDP10
-                        - WORDPRESS_DB_USER=UsernameP10
-                        - WORDPRESS_DB_PASSWORD=PasswordP10
-                        - WORDPRESS_DB_NAME=wrdprssP10
-                volumes:
-                        - /wp_data:/var/www/html
-                user: xfs ### ??????? UID 33?????
-                command: >
-                        /bin/bash -c '
-                        while [ ! -f wp-config.php ]; do
-                        sleep 5;
-                        date;
-                        if [ -f wp-config.php ]; then
-                        wp core install 
-                        --path="/var/www/html" 
-                        --url="WPURLDNS"
-                        --title="Site Web pour P10"
-                        --admin_user="wpuser"
-                        --admin_password="wppassword"
-                        --admin_email="wpemail";
-                        echo "WP bien installé";
-                        wp core version; fi; done;
-                        '
-#        wordpress-cli2:
+#
+#        wordpress-cli:
+#                depends_on:
+#                        - wordpress
+#                image: wordpress:cli
+#                environment:
+#                        - WORDPRESS_DB_HOST=BDP10
+#                        - WORDPRESS_DB_USER=UsernameP10
+#                        - WORDPRESS_DB_PASSWORD=PasswordP10
+#                        - WORDPRESS_DB_NAME=wrdprssP10
+#                volumes:
+#                        - /wp_data:/var/www/html
+#                user: xfs ### ??????? UID 33?????
+#                command: >
+#                        /bin/bash -c '
+#                        while [ ! -f wp-config.php ]; do
+#                        sleep 5;
+#                        date;
+#                        if [ -f wp-config.php ]; then
+#                        wp core install 
+#                        --path="/var/www/html" 
+#                        --url="WPURLDNS"
+#                        --title="Site Web pour P10"
+#                        --admin_user="wpuser"
+#                        --admin_password="wppassword"
+#                        --admin_email="wpemail";
+#                        echo "WP bien installé";
+#                        wp core version; fi; done;
+#                        '
+##        wordpress-cli2:
 #                depends_on:
 #                        - wordpress
 #                image: wordpress:cli
