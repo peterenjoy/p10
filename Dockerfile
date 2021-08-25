@@ -6,7 +6,7 @@ FROM wordpress:latest
 FROM wordpress:cli
 
 
-
+### TEST SSH####
 #
 #RUN apt-get update && apt-get install -y 
 #RUN curl -o /usr/local/bin/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
