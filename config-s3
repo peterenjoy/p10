@@ -1,5 +1,4 @@
 
-
 define( 'AS3CF_SETTINGS', serialize( array(
     'provider' => 'aws',
     'access-key-id' => 'AKID',
@@ -8,5 +7,4 @@ define( 'AS3CF_SETTINGS', serialize( array(
     'region' => 'eu-west-3',
     'copy-to-s3' => true,
 ) ) );
-
 
